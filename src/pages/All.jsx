@@ -45,7 +45,7 @@ export default function ProductList() {
   const product = products;
 
   return (
-  <div className="mt-24 text-center my-10">
+ <div className="mt-24 text-center my-10">
   <div className="min-h-screen bg-white">
       <ProductShowcase products={products} />
   </div>
@@ -54,7 +54,7 @@ export default function ProductList() {
       {product.length > 0 ? (
         product.map((item) => (
           <ProductCard
-            des = {item.description}
+            des={item.description}
             key={item.id}
             image={item.thumbnail}
             name={item.title}   
@@ -70,6 +70,7 @@ export default function ProductList() {
       )}
     </div>
   </div>
-  </div>
+</div>
+
 );
 }

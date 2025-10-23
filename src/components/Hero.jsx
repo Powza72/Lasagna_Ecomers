@@ -56,15 +56,7 @@ export default function HeroSection() {
           {/* Left Content */}
           <div className="flex flex-col justify-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full w-fit mb-6 border border-white/30 animate-slide-up">
-              <Zap className="w-4 h-4 text-yellow-300 fill-yellow-300" />
-              <span className="text-sm font-bold">Limited Time Offer - Up to 50% OFF</span>
-              <div className="flex gap-1">
-                <div className="w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse"></div>
-                <div className="w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                <div className="w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-              </div>
-            </div>
+            
 
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight animate-slide-up" style={{animationDelay: '0.1s'}}>

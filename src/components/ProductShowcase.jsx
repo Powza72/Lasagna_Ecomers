@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import ProductCard from "./ProductCard";
 
 export default function ProductShowcase({ products }) {
-  const settings = {
+  const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 700,
@@ -39,9 +39,9 @@ export default function ProductShowcase({ products }) {
           products available!
         </p>
 
-        {/* Slider Section */}
-        <div className="mt-12">
-          <Slider {...settings}>
+        {/* Slider สำหรับ Desktop/Tablet */}
+        <div className="mt-12 hidden sm:block">
+          <Slider {...sliderSettings}>
             {products.map((item) => (
               <div key={item.id} className="px-3">
                 <ProductCard
@@ -55,10 +55,24 @@ export default function ProductShowcase({ products }) {
             ))}
           </Slider>
         </div>
+
+        {/* Grid สำหรับมือถือ */}
+        <div className="mt-12 sm:hidden grid grid-cols-1 gap-6">
+          {products.map((item) => (
+            <ProductCard
+              key={item.id}
+              image={item.thumbnail}
+              name={item.title}
+              price={item.price}
+              category={item.category}
+              rating={item.rating}
+            />
+          ))}
+        </div>
       </div>
 
       {/* เอฟเฟกต์แสง */}
-      <div className="absolute -top-10 -left-10 w-72 h-72  rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute -top-10 -left-10 w-72 h-72 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"></div>
     </section>
   );

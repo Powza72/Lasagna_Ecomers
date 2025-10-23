@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 
 export default function Beauty({ beautyProducts }) {
   return (
-    <section className="mb-16 px-2 sm:px-4">
+    <section className="mb-16  px-2 sm:px-4">
       {/* หัวข้อ + ปุ่ม */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-10">
         <div>

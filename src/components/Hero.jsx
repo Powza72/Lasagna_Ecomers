@@ -79,15 +79,21 @@ export default function HeroSection() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 animate-slide-up" style={{animationDelay: '0.4s'}}>
-             <Link to = "ALl">
-              <button className="group bg-white text-red-300 px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5 group-hover:rotate-12 transition-transform hover:placeholder-shown:" />
-                Start Shopping
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              </Link>
-            </div>
+            <div className="relative">
+  
+
+  {/* ปุ่ม Start Shopping */}
+  <div className="flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+    <Link to="All">
+      <button className="group bg-white text-red-300 px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 relative">
+        <ShoppingBag className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+        Start Shopping
+        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      </button>
+    </Link>
+  </div>
+</div>
+
 
             {/* Additional Info */}
             <div className="mt-8 flex items-center gap-2 text-sm text-white/80 animate-slide-up" style={{animationDelay: '0.5s'}}>

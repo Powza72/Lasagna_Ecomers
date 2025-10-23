@@ -1,5 +1,7 @@
 import Slider from "react-slick";
 import ProductCard from "./ProductCard";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function ProductShowcase({ products }) {
   const sliderSettings = {
@@ -19,7 +21,7 @@ export default function ProductShowcase({ products }) {
 
   return (
     <section
-      className="mt-1 relative py-20 px-6 sm:px-10 lg:px-16 overflow-hidden"
+      className="relative py-20 px-6 sm:px-10 lg:px-16 overflow-hidden"
       style={{
         backgroundImage: "url('/assets/e.jpg')",
         backgroundSize: "cover",
@@ -27,15 +29,15 @@ export default function ProductShowcase({ products }) {
       }}
     >
       {/* Overlay สีพื้นหลัง */}
-      <div className="absolute inset-0 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto text-center">
-        <h4 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight drop-shadow-md">
+        <h4 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
           🛍️ Browse Our Products
         </h4>
-        <p className="mt-3 text-lg sm:text-xl font-semibold text-gray-700">
+        <p className="mt-3 text-lg sm:text-xl font-semibold text-white/90">
           We now have{" "}
-          <span className="text-green-600 font-bold">{products.length}</span>{" "}
+          <span className="text-green-400 font-bold">{products.length}</span>{" "}
           products available!
         </p>
 
@@ -57,8 +59,8 @@ export default function ProductShowcase({ products }) {
         </div>
 
         {/* Grid สำหรับมือถือ */}
-        <div className="mt-12 sm:hidden grid grid-cols-1 gap-6">
-          {products.map((item) => (
+        <div className="mt-12 sm:hidden grid grid-cols-1 gap-4">
+          {products.slice(0.4).map((item) => (
             <ProductCard
               key={item.id}
               image={item.thumbnail}
@@ -72,8 +74,8 @@ export default function ProductShowcase({ products }) {
       </div>
 
       {/* เอฟเฟกต์แสง */}
-      <div className="absolute -top-10 -left-10 w-72 h-72 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute -top-10 -left-10 w-72 h-72 rounded-full blur-3xl animate-pulse bg-pink-300/30"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full blur-3xl animate-pulse bg-yellow-200/20"></div>
     </section>
   );
 }

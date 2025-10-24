@@ -1,4 +1,5 @@
 import { TrendingUp, Zap, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Feature Card Component
 function FeatureCard({ icon, title, desc, color }) {

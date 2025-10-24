@@ -1,6 +1,7 @@
 // src/components/Beauty.jsx
 import { useEffect, useState } from "react"; 
 import ProductCard from "../components/ProductCard.jsx";
+import { Link } from "react-router-dom";
 
 export default function Fragrances() {
   const [products, setProducts] = useState([]);
@@ -47,6 +48,7 @@ export default function Fragrances() {
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {beautyProducts.length > 0 ? (
           beautyProducts.map((item) => (
+            <Link key={item.id} to={`/products/${item.id}`}>
             <ProductCard
               des={item.description}
               key={item.id}
@@ -56,6 +58,7 @@ export default function Fragrances() {
               category={item.category}
               rate={item.rating}
             />
+            </Link>
           ))
         ) : (
           <p className="col-span-full text-center text-gray-500">

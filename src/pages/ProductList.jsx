@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"; 
+import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard.jsx";
 
 export default function ProductList() {
@@ -12,7 +13,7 @@ export default function ProductList() {
         if (!res.ok) throw new Error("ไม่สามารถเชื่อมต่อกับ API ได้");
         return res.json();
       })
-      .then((data) => setProducts(data.products)) // ✅ ต้องใช้ .products
+      .then((data) => setProducts(data.products))
       .catch(() => setError("เกิดข้อผิดพลาดในการโหลดข้อมูล กรุณาลองใหม่อีกครั้ง"))
       .finally(() => setLoading(false));
   }, []);
@@ -44,26 +45,27 @@ export default function ProductList() {
   const product = products.filter((item) => item.category === "groceries");
 
   return (
-  <div className="mt-12 max-w-6xl mx-auto px-4 py-8">
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-      {product.length > 0 ? (
-        product.map((item) => (
-          <ProductCard
-            des = {item.description}
-            key={item.id}
-            image={item.thumbnail}
-            name={item.title}   
-            price={item.price}
-            category={item.category}
-            rate={item.rating}
-          />
-        ))
-      ) : (
-        <p className="col-span-full text-center text-gray-500">
-          ไม่มีสินค้าประเภทนี้ในขณะนี้
-        </p>
-      )}
+    <div className="mt-12 max-w-6xl mx-auto px-4 py-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        {product.length > 0 ? (
+          product.map((item) => (
+            <Link key={item.id} to={`/products/${item.id}`}>
+              <ProductCard
+                des={item.description}
+                image={item.thumbnail}
+                name={item.title}
+                price={item.price}
+                category={item.category}
+                rate={item.rating}
+              />
+            </Link>
+          ))
+        ) : (
+          <p className="col-span-full text-center text-gray-500">
+            ไม่มีสินค้าประเภทนี้ในขณะนี้
+          </p>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
 }

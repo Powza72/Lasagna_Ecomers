@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Beauty from "./pages/Beauty_Products.jsx";
 import Fragrances from "./pages/Fragrances_Products.jsx";
+import ProductDetails from "./pages/ProductDetails.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/all" element={<All />} />
         <Route path="/beauty" element={<Beauty />} />
         <Route path="/fragrances" element={<Fragrances />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
       </Routes>
 
       <Footer />
